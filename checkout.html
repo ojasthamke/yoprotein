@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YoProtein - Checkout</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="goHome()">YoProtein</div>
+    <div class="nav-links">
+      <a href="profile.html">Profile</a>
+      <a href="cart.html">Cart</a>
+      <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
+  </nav>
+
+  <section id="checkout-section">
+    <h2>Checkout</h2>
+    <div class="checkout-form">
+      <div class="form-group">
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" placeholder="**** **** **** ****" />
+      </div>
+      <div class="form-group">
+        <label for="card-name">Name on Card</label>
+        <input type="text" id="card-name" placeholder="John Doe" />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="expiry-date">Expiry Date</label>
+          <input type="text" id="expiry-date" placeholder="MM/YY" />
+        </div>
+        <div class="form-group">
+          <label for="cvv">CVV</label>
+          <input type="text" id="cvv" placeholder="***" />
+        </div>
+      </div>
+      <button class="pay-now-btn" onclick="processPayment()">Pay Now</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    function processPayment() {
+      alert('Payment processing simulated. In a real application, this would connect to a payment gateway.');
+      window.location.href = 'index.html'; // Redirect to home after simulated payment
+    }
+  </script>
+</body>
+</html>

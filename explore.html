@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YoProtein - Explore Plan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="goHome()">YoProtein</div>
+    <div class="nav-links">
+      <a href="profile.html">Profile</a>
+      <a href="cart.html">Cart</a>
+      <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
+  </nav>
+
+  <section id="explore-detail" class="animated-section">
+    <div class="overlay"></div>
+    <div class="explore-content">
+      <h1 id="plan-title"></h1>
+      <div id="plan-image-detail" class="plan-image-detail"></div>
+      <p id="plan-description"></p>
+      <p id="plan-price"></p>
+      <button class="add-to-cart-btn" id="add-to-cart-btn">Add to Cart</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const planId = urlParams.get('plan');
+
+      const plans = {
+        'veg7': {
+          title: '7 Days Veg Plan',
+          image: 'https://thecurryculture.ca/wp-content/uploads/2020/12/Kadhai-paneer.jpg',
+          description: 'A delicious 7-day vegetarian meal plan focusing on high protein and fresh ingredients.',
+          price: '₹999'
+        },
+        'veg15': {
+          title: '15 Days Veg Plan',
+          image: 'https://i.pinimg.com/736x/92/eb/af/92ebafdca02b03daaac3953193ad1297.jpg',
+          description: 'An extended 15-day vegetarian meal plan for sustained fitness and healthy eating.',
+          price: '₹1799'
+        },
+        'nonveg7': {
+          title: '7 Days Non-Veg Plan',
+          image: 'https://www.eatwell101.com/wp-content/uploads/2020/03/easy-Chicken-Casserole-Recipe.jpg',
+          description: 'A protein-packed 7-day non-vegetarian meal plan designed for muscle growth and energy.',
+          price: '₹1299'
+        },
+        'nonveg15': {
+          title: '15 Days Non-Veg Plan',
+          image: 'https://www.eatwell101.com/wp-content/uploads/2019/03/chicken-and-green-beans-recipe4.jpg',
+          description: 'A comprehensive 15-day non-vegetarian meal plan for serious fitness enthusiasts.',
+          price: '₹2299'
+        }
+      };
+
+      const plan = plans[planId];
+
+      if (plan) {
+        document.getElementById('plan-title').textContent = plan.title;
+        document.getElementById('explore-detail').style.backgroundImage = `url('${plan.image}')`;
+        document.getElementById('explore-detail').style.backdropFilter = 'blur(8px)'; /* Add blur effect */
+        document.getElementById('plan-image-detail').style.backgroundImage = `url('${plan.image}')`;
+        document.getElementById('plan-description').textContent = plan.description;
+        document.getElementById('plan-price').textContent = plan.price;
+
+        document.getElementById('add-to-cart-btn').onclick = () => {
+          window.location.href = `cart.html?plan=${planId}`;
+        };
+
+      } else {
+        document.getElementById('explore-detail').innerHTML = '<div class="overlay"></div><div class="explore-content"><h1>Plan Not Found</h1><p>The requested plan could not be found.</p></div>';
+      }
+    });
+  </script>
+</body>
+</html>

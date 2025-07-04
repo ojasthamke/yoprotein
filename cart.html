@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YoProtein - Cart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="goHome()">YoProtein</div>
+    <div class="nav-links">
+      <a href="profile.html">Profile</a>
+      <a href="cart.html">Cart</a>
+      <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
+  </nav>
+
+  <section id="cart-section">
+    <h2>Your Cart</h2>
+    <div id="cart-items">
+      <p>Your cart is empty.</p>
+    </div>
+    <div class="cart-summary">
+      <p>Total: <span id="cart-total">₹0</span></p>
+      <button class="checkout-btn" onclick="window.location.href='checkout.html'">Proceed to Checkout</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // This is a placeholder for cart functionality.
+      // In a real application, you would load cart items from local storage or a server.
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartTotalSpan = document.getElementById('cart-total');
+
+      // Example of adding an item to cart (for demonstration)
+      // This would typically be triggered by the "Add to Cart" button on explore.html
+      const urlParams = new URLSearchParams(window.location.search);
+      const planId = urlParams.get('plan');
+      const plans = {
+        'veg7': { title: '7 Days Veg Plan', price: 999 },
+        'veg15': { title: '15 Days Veg Plan', price: 1799 },
+        'nonveg7': { title: '7 Days Non-Veg Plan', price: 1299 },
+        'nonveg15': { title: '15 Days Non-Veg Plan', price: 2299 }
+      };
+
+      if (planId && plans[planId]) {
+        const plan = plans[planId];
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        cartItem.innerHTML = `
+          <span>${plan.title}</span>
+          <span>₹${plan.price}</span>
+        `;
+        cartItemsContainer.innerHTML = ''; // Clear "Your cart is empty"
+        cartItemsContainer.appendChild(cartItem);
+        cartTotalSpan.textContent = `₹${plan.price}`;
+      }
+    });
+  </script>
+</body>
+</html>

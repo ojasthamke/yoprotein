@@ -1,0 +1,448 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: white;
+  transition: background 0.5s, color 0.5s;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-links a,
+.nav-links button {
+  margin-left: 1rem;
+  color: white;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#about-us {
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT8YFnqMO3DQ4ibv9Bo7shR9QJXPBqt8hUoQ&s') no-repeat center center/cover;
+  height: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.about-content {
+  position: relative;
+  z-index: 1;
+}
+
+.plan-cards {
+  display: flex;
+  overflow-x: auto;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.card {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 1rem;
+  flex: 0 0 250px;
+  transition: transform 0.3s;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #e91e63;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.card h3 {
+  font-weight: bold;
+  text-align: center;
+}
+
+.plan-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.filter-buttons {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.filter-btn:hover {
+  background-color: #555;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background-color: #e91e63;
+  box-shadow: 0 4px 8px rgba(233, 30, 99, 0.4);
+}
+
+.light-theme .filter-btn {
+  background-color: #ddd;
+  color: black;
+}
+
+.light-theme .filter-btn:hover {
+  background-color: #bbb;
+}
+
+.light-theme .filter-btn.active {
+  background-color: #007bff;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Removed specific animation delays for performance */
+/* .card and .filter-btn animations are now handled by their default styles or simpler JS */
+
+.light-theme {
+  background: white;
+  color: black;
+}
+
+.light-theme .navbar {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.light-theme .nav-links a,
+.light-theme .nav-links button {
+  color: black;
+}
+
+.light-theme .card {
+  background: #f2f2f2;
+  color: black;
+}
+
+.light-theme .card a {
+  background: #007bff;
+}
+
+#explore-detail {
+  background: url('https://source.unsplash.com/1600x900/?healthy-food') no-repeat center center/cover; /* Placeholder, can be dynamic */
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.explore-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.plan-image-detail {
+  width: 100%;
+  height: 250px; /* Fixed height for the image container */
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.add-to-cart-btn {
+  background: #e91e63;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #c2185b;
+  transform: translateY(-2px);
+}
+
+.light-theme #explore-detail .explore-content {
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+}
+
+.light-theme .add-to-cart-btn {
+  background: #007bff;
+}
+
+.light-theme .add-to-cart-btn:hover {
+  background-color: #0056b3;
+}
+
+footer {
+  background-color: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  border-top: 1px solid #333;
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 0.8rem;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #e91e63;
+}
+
+.social-icon {
+  width: 30px; /* Adjust size as needed */
+  height: 30px;
+  vertical-align: middle;
+}
+
+.light-theme footer {
+  background-color: #f2f2f2;
+  color: black;
+  border-color: #ccc;
+}
+
+.light-theme .social-links a {
+  color: black;
+}
+
+.light-theme .social-links a:hover {
+  color: #007bff;
+}
+
+#cart-section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  text-align: center;
+}
+
+#cart-section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #e91e63;
+}
+
+#cart-items {
+  min-height: 100px;
+  margin-bottom: 1.5rem;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  padding: 1rem 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.cart-summary {
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.checkout-btn {
+  background: #e91e63;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.checkout-btn:hover {
+  background-color: #c2185b;
+  transform: translateY(-2px);
+}
+
+.light-theme #cart-section {
+  background: #f2f2f2;
+  color: black;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.light-theme #cart-section h2 {
+  color: #007bff;
+}
+
+.light-theme #cart-items {
+  border-color: #ccc;
+}
+
+.light-theme .checkout-btn {
+  background: #007bff;
+}
+
+.light-theme .checkout-btn:hover {
+  background-color: #0056b3;
+}
+
+#checkout-section {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  text-align: center;
+}
+
+#checkout-section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #e91e63;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: white;
+  font-size: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.pay-now-btn {
+  background: #e91e63;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s, transform 0.2s;
+  align-self: center;
+}
+
+.pay-now-btn:hover {
+  background-color: #c2185b;
+  transform: translateY(-2px);
+}
+
+.light-theme #checkout-section {
+  background: #f2f2f2;
+  color: black;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.light-theme .form-group input[type="text"] {
+  background-color: #eee;
+  color: black;
+  border-color: #ccc;
+}
+
+.light-theme .pay-now-btn {
+  background: #007bff;
+}
+
+.light-theme .pay-now-btn:hover {
+  background-color: #0056b3;
+}
