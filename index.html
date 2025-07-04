@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YoProtein - Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="goHome()">YoProtein</div>
+    <div class="nav-links">
+      <a href="profile.html">Profile</a>
+      <a href="cart.html">Cart</a>
+      <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
+  </nav>
+
+  <section id="about-us" class="animated-section">
+    <div class="overlay"></div>
+    <div class="about-content">
+      <h1>About Us</h1>
+      <p>YoProtein delivers high-protein meals tailored for fitness and taste.</p>
+    </div>
+  </section>
+
+  <section id="plans">
+    <h2 style="text-align: center;">Choose Your Plan</h2>
+    <div class="filter-buttons">
+      <button class="filter-btn" onclick="filterPlans('veg')">Veg Plans</button>
+      <button class="filter-btn" onclick="filterPlans('non-veg')">Non-Veg Plans</button>
+    </div>
+    <div class="plan-cards">
+      <div class="card veg-plan">
+        <h3>7 Days Veg Plan</h3>
+        <img src="https://thecurryculture.ca/wp-content/uploads/2020/12/Kadhai-paneer.jpg" alt="Kadhai Paneer" class="plan-image">
+        <p>₹999</p>
+        <a href="explore.html?plan=veg7">Explore</a>
+      </div>
+      <div class="card veg-plan">
+        <h3>15 Days Veg Plan</h3>
+        <img src="https://i.pinimg.com/736x/92/eb/af/92ebafdca02b03daaac3953193ad1297.jpg" alt="Paneer Dish" class="plan-image">
+        <p>₹1799</p>
+        <a href="explore.html?plan=veg15">Explore</a>
+      </div>
+      <div class="card non-veg-plan">
+        <h3>7 Days Non-Veg Plan</h3>
+        <img src="https://www.eatwell101.com/wp-content/uploads/2020/03/easy-Chicken-Casserole-Recipe.jpg" alt="Chicken Casserole" class="plan-image">
+        <p>₹1299</p>
+        <a href="explore.html?plan=nonveg7">Explore</a>
+      </div>
+      <div class="card non-veg-plan">
+        <h3>15 Days Non-Veg Plan</h3>
+        <img src="https://www.eatwell101.com/wp-content/uploads/2019/03/chicken-and-green-beans-recipe4.jpg" alt="Chicken and Green Beans" class="plan-image">
+        <p>₹2299</p>
+        <a href="explore.html?plan=nonveg15">Explore</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <footer>
+    <p>&copy; 2024 YoProtein. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1200px-Instagram_logo_2016.svg.png" alt="Instagram" class="social-icon"></a>
+    </div>
+  </footer>
+</body>
+</html>
